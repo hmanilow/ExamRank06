@@ -14,3 +14,10 @@ void error(char *msg)
     write(2, msg, strlen(msg));
     exit(1);
 }
+
+void send_all(int cs)
+{
+    for (int i = 0; i <= max; i++)
+        if (i!=cs && FD_ISSET(i, &rdWrite))
+            send(i, &wrBuf, strlen(wrBuf), 0);
+}
