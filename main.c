@@ -28,3 +28,11 @@ int main(int argc, char **argv)
     if (argc < 2)
         error("sfsdf\n");
     FD_ZERO(&active);
+
+    bzero(id, sizeof(id));
+    struct sockaddr_in addr;
+    socklen_t len = sizeof(addr);
+
+    addr.sin_family = AF_INET;
+    addr.sin_addr.s_addr = htonl(2130706433);
+    addr.sin_port = htons(atoi(argv[1]));
