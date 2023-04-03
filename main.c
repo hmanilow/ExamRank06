@@ -21,3 +21,10 @@ void send_all(int cs)
         if (i!=cs && FD_ISSET(i, &rdWrite))
             send(i, &wrBuf, strlen(wrBuf), 0);
 }
+
+
+int main(int argc, char **argv)
+{
+    if (argc < 2)
+        error("sfsdf\n");
+    FD_ZERO(&active);
