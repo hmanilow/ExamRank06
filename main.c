@@ -62,6 +62,11 @@ int main(int argc, char **argv)
 			sprintf(wrBuf, "server: client %d just arrived\n", id[cli]);
 			send_all(cli);
 		}
+		else
+                {
+			int ret = 1000, rdBuflen = 0;
+			while(ret==1000 || rdBuf[rdBuflen-1]!='\n')
+                    {
 	}
     }
 }
