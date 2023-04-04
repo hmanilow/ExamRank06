@@ -48,3 +48,11 @@ int main(int argc, char **argv)
         rdRead = rdWrite = active;
 	if(select(max+1,&rdRead,&rdWrite,NULL,NULL)<0)
 		continue;
+	for (int s = 0; s <= max;s++)
+	if(FD_ISSET(s,&rdRead))
+        {
+		if(s==sockfd)
+		{}
+	}
+    }
+}
