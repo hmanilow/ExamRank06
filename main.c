@@ -42,9 +42,9 @@ int main(int argc, char **argv)
             || listen(sockfd, 10) != 0)
         error("fatal\n");
     max = sockfd;
-	FD_SET(sockfd, &active);
-	while(1)
+    FD_SET(sockfd, &active);
+    while(1)
     {
-		rdRead = rdWrite = active;
-		if(select(max+1,&rdRead,&rdWrite,NULL,NULL)<0)
-			continue;
+        rdRead = rdWrite = active;
+	if(select(max+1,&rdRead,&rdWrite,NULL,NULL)<0)
+		continue;
