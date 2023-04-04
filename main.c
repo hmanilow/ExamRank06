@@ -41,3 +41,10 @@ int main(int argc, char **argv)
     if (sockfd == -1 || bind(sockfd, (const struct sockaddr *)&addr, len) !=0
             || listen(sockfd, 10) != 0)
         error("fatal\n");
+    max = sockfd;
+	FD_SET(sockfd, &active);
+	while(1)
+    {
+		rdRead = rdWrite = active;
+		if(select(max+1,&rdRead,&rdWrite,NULL,NULL)<0)
+			continue;
