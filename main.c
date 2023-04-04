@@ -52,7 +52,9 @@ int main(int argc, char **argv)
 	if(FD_ISSET(s,&rdRead))
         {
 		if(s==sockfd)
-		{}
+		{
+			int cli = accept(sockfd, (struct sockaddr *)&addr, &len);
+		}
 	}
     }
 }
