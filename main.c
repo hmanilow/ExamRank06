@@ -54,6 +54,13 @@ int main(int argc, char **argv)
 		if(s==sockfd)
 		{
 			int cli = accept(sockfd, (struct sockaddr *)&addr, &len);
+			if(cli<0)
+				continue;
+			max = cli > max ? cli : max;
+			id[cli] = next_id++;
+			FD_SET(cli, &active);
+			sprintf(wrBuf, "server: client %d just arrived\n", id[cli]);
+			send_all(cli);
 		}
 	}
     }
