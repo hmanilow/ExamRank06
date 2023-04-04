@@ -36,3 +36,8 @@ int main(int argc, char **argv)
     addr.sin_family = AF_INET;
     addr.sin_addr.s_addr = htonl(2130706433);
     addr.sin_port = htons(atoi(argv[1]));
+    
+    int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd == -1 || bind(sockfd, (const struct sockaddr *)&addr, len) !=0
+            || listen(sockfd, 10) != 0)
+        error("fatal\n");
