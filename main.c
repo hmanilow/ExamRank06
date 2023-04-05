@@ -80,6 +80,11 @@ int main(int argc, char **argv)
 				close(s);
 				break;
 			}
+			for (int i = 0, j = 0; i < rdBuflen;i++,j++)
+                    	{
+				str[j] = rdBuf[i];
+				if(str[j]=='\n')
+                        	{
 	}
     }
 }
