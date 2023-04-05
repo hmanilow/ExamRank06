@@ -66,7 +66,12 @@ int main(int argc, char **argv)
                 {
 			int ret = 1000, rdBuflen = 0;
 			while(ret==1000 || rdBuf[rdBuflen-1]!='\n')
-                    {
+                    	{
+				ret = recv(s, rdBuf + rdBuflen, 1000, 0);
+				if(ret<=0)
+					break;
+				rdBuflen += ret;
+			}
 	}
     }
 }
