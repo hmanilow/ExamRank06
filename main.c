@@ -33,7 +33,7 @@ int main(int ac, char **av)
 
     // ip port
 	addr.sin_family = AF_INET; //
-	addr.sin_addr.s_addr = htonl(2130706433); //127.0.0.1
+	addr.sin_addr.s_addr = htonl(2130706433); 
 	addr.sin_port = htons(atoi(av[1])); //
   
 	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
