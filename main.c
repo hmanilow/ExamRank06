@@ -72,6 +72,14 @@ int main(int argc, char **argv)
 					break;
 				rdBuflen += ret;
 			}
+			if(ret<=0)
+                    	{
+				sprintf(wrBuf, "server: client %d just left\n", id[s]);
+				send_all(s);
+				FD_CLR(s, &active);
+				close(s);
+				break;
+			}
 	}
     }
 }
