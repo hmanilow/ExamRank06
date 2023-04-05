@@ -85,6 +85,10 @@ int main(int argc, char **argv)
 				str[j] = rdBuf[i];
 				if(str[j]=='\n')
                         	{
+					str[j] = 0;
+					j = -1;
+					sprintf(wrBuf, "", id[s], str);
+					send_all(s);
 	}
     }
 }
